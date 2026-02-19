@@ -1,6 +1,6 @@
 package com.rubim.qrcode.generator.infrastructure;
 
-import com.rubim.qrcode.generator.ports.StoragePorts;
+import com.rubim.qrcode.generator.ports.StoragePort;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.core.sync.RequestBody;
@@ -9,7 +9,7 @@ import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 @Component
-public class S3StorageAdapter implements StoragePorts {
+public class S3StorageAdapter implements StoragePort {
 
     private final S3Client s3Client;
 
