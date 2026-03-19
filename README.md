@@ -14,6 +14,8 @@ Este projeto foi construído para consolidar conhecimentos em desenvolvimento Ba
 
 Para tornar a experiência completa, este Back-end está integrado a uma interface Web (Front-end) desenvolvida em HTML/CSS e JavaScript Vanilla, que consome esta API em tempo real.
 
+> **⚠️ Observação sobre a primeira requisição:** Como a API está hospedada em uma camada gratuita (Render Free Tier), o servidor entra em modo de hibernação após 15 minutos de inatividade. Por isso, a **primeira geração de QR Code pode levar até 50 segundos** enquanto a aplicação "acorda". As requisições subsequentes ocorrerão quase instantaneamente.
+
 * 🔗 **Acesse a aplicação rodando na nuvem:** [https://qrcode-front-rust.vercel.app]
 * 💻 **Veja o código-fonte do Front-end:** [https://github.com/Rubimze/qrcode-frontend](https://github.com/Rubimze/qrcode-frontend)
 
