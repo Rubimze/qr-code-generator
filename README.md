@@ -4,13 +4,20 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Status](https://img.shields.io/badge/STATUS-COMPLETED-brightgreen?style=for-the-badge)
 
-# QR Code Generator API
+# 📱 QR Code Generator API
 
 Uma API REST desenvolvida em **Java** e **Spring Boot** para a geração de QR Codes dinâmicos, com upload automático e armazenamento na nuvem utilizando **Amazon S3**. O projeto é totalmente containerizado com **Docker**, garantindo facilidade no deploy e consistência de ambiente.
 
 Este projeto foi construído para consolidar conhecimentos em desenvolvimento Back-end, integração com serviços Cloud (AWS) e boas práticas de conteinerização.
 
-## Tecnologias Utilizadas
+## 🌐 Demonstração e Front-end
+
+Para tornar a experiência completa, este Back-end está integrado a uma interface Web (Front-end) desenvolvida em HTML/CSS e JavaScript Vanilla, que consome esta API em tempo real.
+
+* 🔗 **Acesse a aplicação rodando na nuvem:** [https://qrcode-front-rust.vercel.app]
+* 💻 **Veja o código-fonte do Front-end:** [https://github.com/Rubimze/qrcode-frontend](https://github.com/Rubimze/qrcode-frontend)
+
+## 🚀 Tecnologias Utilizadas
 
 * **Java 21**
 * **Spring Boot 3.x** (Web)
@@ -19,14 +26,14 @@ Este projeto foi construído para consolidar conhecimentos em desenvolvimento Ba
 * **Docker** - Containerização da aplicação utilizando *Multi-stage build*.
 * **Maven** - Gerenciamento de dependências.
 
-## Arquitetura e Fluxo
+## ⚙️ Arquitetura e Fluxo
 
 1. O cliente envia uma requisição `POST` contendo o texto ou URL desejada.
 2. O `QrCodeGeneratorService` utiliza o **ZXing** para processar o texto e transformá-lo em uma imagem PNG (`byte[]`) em memória.
 3. O `S3StorageAdapter` recebe o arquivo gerado e faz o upload seguro para um bucket no **Amazon S3**.
 4. A API retorna o Status `200 OK` com a URL pública gerada pela AWS para visualização imediata do QR Code.
 
-## Como executar localmente
+## 🛠️ Como executar localmente
 
 ### Pré-requisitos
 * **Docker** instalado e rodando.
@@ -58,7 +65,7 @@ Este projeto foi construído para consolidar conhecimentos em desenvolvimento Ba
    docker run --env-file .env -p 8080:8080 qrcode-api:1.0
    ```
 
-## Endpoint da API
+## 🔌 Endpoint da API
 
 ### `POST /qrcode`
 
@@ -75,12 +82,27 @@ Este projeto foi construído para consolidar conhecimentos em desenvolvimento Ba
   "qrCodeUrl": "[https://s3.us-east-1.amazonaws.com/seu-bucket/nome-do-arquivo-gerado.png](https://s3.us-east-1.amazonaws.com/seu-bucket/nome-do-arquivo-gerado.png)"
 }
 ```
-<img width="817" height="293" alt="image" src="https://github.com/user-attachments/assets/c04f9558-7c31-45ff-bea6-c9fa5ce8c702" />
-<img width="1170" height="454" alt="image" src="https://github.com/user-attachments/assets/a1554f4f-da7f-4d26-ba29-3bb42cd1c3fd" />
-<img width="765" height="456" alt="image" src="https://github.com/user-attachments/assets/ce64ac68-9b31-43fd-94cd-1dfea84b3f6d" />
 
+## 📸 Galeria de Telas
 
+Abaixo está o fluxo completo da aplicação, desde o teste da API até o resultado final hospedado na nuvem.
 
+<table width="100%">
+  <tr>
+    <td align="center" width="33%">
+      <b>1. Teste no Insomnia</b><br><br>
+      <img src="https://github.com/user-attachments/assets/c04f9558-7c31-45ff-bea6-c9fa5ce8c702" width="100%">
+    </td>
+    <td align="center" width="33%">
+      <b>2. Objeto salvo no S3</b><br><br>
+      <img src="https://github.com/user-attachments/assets/7d04f89d-ae56-4253-9bb0-b9ab8d15066a" width="100%">
+    </td>
+    <td align="center" width="33%">
+      <b>3. QR Code gerado</b><br><br>
+      <img src="https://github.com/user-attachments/assets/7ffac5af-4981-42bf-b122-90fd0c343d96" width="100%">
+    </td>
+  </tr>
+</table>
 
 ## 💡 Créditos e Referências
 A arquitetura base e as configurações de infraestrutura deste projeto foram inspiradas pelo excelente conteúdo da série "Projeto BACKEND do ZERO", da desenvolvedora Fernanda Kipper.
